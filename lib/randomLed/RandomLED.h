@@ -3,6 +3,7 @@
 class RandomLED
 {
     public :
-        static CRGB randomLED();
-        
+        RandomLED();
+        int getHue();
+        CHSV getCHSV();     
 } ;
