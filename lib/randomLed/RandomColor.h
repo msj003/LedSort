@@ -1,9 +1,9 @@
 #include <FastLED.h>
 
-class RandomLED
+class RandomColor
 {
     public :
-        RandomLED();
+        RandomColor();
         int getHue();
         CHSV getCHSV();     
 } ;

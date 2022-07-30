@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <FastLED.h>
-#include <RandomLED.h>
+#include <RandomColor.h>
 
 #define NUM_LEDS 240
 #define DATA_PIN D2
@@ -15,9 +15,9 @@ void setup()
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(_leds, NUM_LEDS);
   for (int dot = 0; dot < NUM_LEDS; dot++)
   {
-    RandomLED randomLed;
-    _leds[dot] = randomLed.getCHSV();
-    _hueLeds[dot] = randomLed.getHue();
+    RandomColor randomColor;
+    _leds[dot] = randomColor.getCHSV();
+    _hueLeds[dot] = randomColor.getHue();
     FastLED.show();
   }
   Serial.println("LED Initiated");

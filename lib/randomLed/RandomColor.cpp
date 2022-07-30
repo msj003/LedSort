@@ -1,24 +1,24 @@
 #include <FastLED.h>
-#include <RandomLED.h>
+#include <RandomColor.h>
 
 int hue;
 int sat;
 int val;
 
-RandomLED::RandomLED()
+RandomColor::RandomColor()
 {
     hue = rand() % 255 + 1;
     sat = 255;
     val = 255;
 }
 
-CHSV RandomLED::getCHSV()
+CHSV RandomColor::getCHSV()
 {
     CHSV randomColor = CHSV(hue,sat,val);
     return randomColor;
 }
 
-int RandomLED::getHue()
+int RandomColor::getHue()
 {
     return hue;
 }
