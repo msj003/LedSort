@@ -1,39 +1,29 @@
 #include<StripController.h>
-#include<StripAccess.h>
+#include<StripAccessSingleton.h>
 
 
-void StripController::intialize()
-{
-    StripAccess::init();
-}
+StripAccessSingleton* StripAccessSingleton::_instance = 0;
+StripAccessSingleton*  stripAccess = StripAccessSingleton::get();
+
+StripController::StripController()
+{}
 
 void StripController::testColor()
 {
-    
     for (int dot = 40; dot < 200; dot++)
     {
-        StripAccess::setHue(dot,0);
+        stripAccess->setHue(dot,0);
     }
-
 }
 
 
 void StripController::runningDot()
 {
-// for (int dot = 1; dot < NUM_LEDS; dot++)
-//   {
-//     CHSV ledOld = CHSV(_hueLeds[dot],255,255);
-//     CHSV ledOld30 = CHSV(_hueLeds[dot+30],255,255);
-//     _leds[dot] = CHSV(0,0,0);
-//     FastLED.show();
-//     _leds[dot+30] = CHSV(0,0,0);
-//     FastLED.show();
-//     delay(10);
-//     _leds[dot] = ledOld;
-//     _leds[dot+30] = ledOld30;
-//     FastLED.show();
-//     delay(10);
-//   }
+    for (int dot = 1; dot < 240; dot++)
+    {   
+       int hueIdx = stripAccess->getHue(dot);
+       stripAccess->setHue(dot,hueIdx);
+    }
 }
 
 

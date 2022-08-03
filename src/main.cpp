@@ -4,21 +4,21 @@
 #include <StripController.h>
 
 
+StripController stripController;
+
 void setup()
 {
   // put your setup code here, to run onc
   Serial.begin(9600);
 
-  StripController::intialize();
-  //FastLED.show();
   Serial.println("LED Initiated");
 }
 
 void loop()
 {
-  //StripController::runningDot();
+  stripController.runningDot();
 
-  StripController::testColor();
+  //StripController::testColor();
 
   
 }
