@@ -1,3 +1,4 @@
 {
-    "idf.port": "/dev/cu.usbserial-0001"
+    "idf.port": "/dev/cu.usbserial-0001",
+    "C_Cpp.errorSquiggles": "Disabled"
 }
