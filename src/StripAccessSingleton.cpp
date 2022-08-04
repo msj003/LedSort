@@ -21,15 +21,27 @@ StripAccessSingleton::StripAccessSingleton()
     }
 }
 
+void StripAccessSingleton::randomize()
+{
+    for (int dot = 0; dot < NUM_LEDS; dot++)
+    {
+        RandomColor randomColor;
+        _leds[dot] = randomColor.getCHSV();
+        _hueLeds[dot] = randomColor.getHue(); 
+        FastLED.show();
+        delay(5);
+    }
+}
+
 void StripAccessSingleton::setHue(int index, int hue)
 {
     _hueLeds[index] = hue;
     _leds[index] = CRGB(255,255,255);
     FastLED.show();
-    delay(10);
+    delay(0.1);
     _leds[index] = CHSV(hue,255,255);
     FastLED.show();
-    delay(5);
+    delay(0.1);
 }
 
 int StripAccessSingleton::getHue(int index)

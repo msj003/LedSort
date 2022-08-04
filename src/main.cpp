@@ -12,13 +12,13 @@ void setup()
   Serial.begin(9600);
 
   Serial.println("LED Initiated");
+  //stripController.testColor();
 }
 
 void loop()
 {
-  stripController.runningDot();
-
-  //StripController::testColor();
-
-  
+  //stripController.runningDot();
+  stripController.intialize();
+  stripController.insertionSort();
+  delay(1000);
 }

@@ -7,6 +7,7 @@ class StripAccessSingleton
             if(! _instance){ _instance = new StripAccessSingleton;}
             return _instance;
         }
+        void randomize();
         void setHue(int index, int hue);
         int getHue(int index);
     private:

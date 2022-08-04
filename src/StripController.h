@@ -8,5 +8,5 @@ class StripController
         static void runningDot();
         static void testColor();
         static void refresh();
-        static void sort();
+        static void insertionSort();
 };
