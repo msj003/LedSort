@@ -1,4 +1,4 @@
-#include<StripController.h>
+#include<StripSortController.h>
 #include<StripAccessSingleton.h>
 
 #define NUM_LEDS 240
@@ -6,15 +6,15 @@
 StripAccessSingleton* StripAccessSingleton::_instance = 0;
 StripAccessSingleton*  stripAccess = StripAccessSingleton::get();
 
-StripController::StripController()
+StripSortController::StripSortController()
 {}
 
-void StripController::intialize()
+void StripSortController::intialize()
 {
     stripAccess->randomize();
 }
 
-void StripController::testColor()
+void StripSortController::testColor()
 {
     Serial.println(stripAccess->getHue(1));
     Serial.println(stripAccess->getHue(2));
@@ -40,7 +40,7 @@ void StripController::testColor()
 }
 
 
-void StripController::runningDot()
+void StripSortController::runningDot()
 {
     for (int dot = 1; dot < NUM_LEDS; dot++)
     {   
@@ -52,7 +52,7 @@ void StripController::runningDot()
 
 
 
-void StripController::insertionSort()
+void StripSortController::insertionSort()
 {    
     int i, key, j; 
     for (i = 1; i < NUM_LEDS; i++)
@@ -73,5 +73,28 @@ void StripController::insertionSort()
     }
 }
 
+void StripSortController::selectionSort() 
+{ 
+    int i, j, min_idx; 
+  
+    // One by one move boundary of 
+    // unsorted subarray 
+    for (i = 0; i < NUM_LEDS-1; i++) 
+    { 
+        
+        // Find the minimum element in 
+        // unsorted array 
+        min_idx = i; 
+        for (j = i+1; j < NUM_LEDS; j++) 
+        if (stripAccess->getHue(j) < stripAccess->getHue(min_idx)) 
+            min_idx = j; 
+  
+        // Swap the found minimum element 
+        // with the first element 
+        int temp = stripAccess->getHue(min_idx);
+        stripAccess->setHue(min_idx,stripAccess->getHue(i));
+        stripAccess->setHue(i,temp);
+    } 
+} 
 
 

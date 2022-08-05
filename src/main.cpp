@@ -1,10 +1,8 @@
 #include <Arduino.h>
-#include <FastLED.h>
-#include <RandomColor.h>
-#include <StripController.h>
+#include <StripSortController.h>
 
 
-StripController stripController;
+StripSortController stripSortController;
 
 void setup()
 {
@@ -12,13 +10,16 @@ void setup()
   Serial.begin(9600);
 
   Serial.println("LED Initiated");
-  //stripController.testColor();
+  //stripSortController.testColor();
 }
 
 void loop()
 {
-  //stripController.runningDot();
-  stripController.intialize();
-  stripController.insertionSort();
+  //stripSortController.runningDot();
+  stripSortController.intialize();
+  stripSortController.insertionSort();
+  delay(1000);
+  stripSortController.intialize();
+  stripSortController.selectionSort();
   delay(1000);
 }

@@ -1,12 +1,14 @@
 #include <FastLED.h>
 
-class StripController
+class StripSortController
 {
     public:
-        StripController();
+        StripSortController();
         static void intialize();
         static void runningDot();
         static void testColor();
         static void refresh();
         static void insertionSort();
+        static void selectionSort();
+        static void mergeSort();
 };
