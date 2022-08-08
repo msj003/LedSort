@@ -10,6 +10,7 @@ class StripAccessSingleton
         void randomize();
         void setHue(int index, int hue);
         int getHue(int index);
+        void printHueArray();
     private:
         static StripAccessSingleton* _instance;
         StripAccessSingleton();

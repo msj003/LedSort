@@ -10,5 +10,5 @@ class StripSortController
         static void refresh();
         static void insertionSort();
         static void selectionSort();
-        static void mergeSort();
+        static void mergeSortControl();
 };

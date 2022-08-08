@@ -48,3 +48,11 @@ int StripAccessSingleton::getHue(int index)
 {
     return  _hueLeds[index];
 }
+
+void StripAccessSingleton::printHueArray()
+{
+    for (int dot = 0; dot < NUM_LEDS; dot++)
+    {
+        Serial.println(_hueLeds[dot]);
+    }
+}
