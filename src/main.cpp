@@ -19,12 +19,15 @@ void loop()
   stripSortController.intialize();
   stripSortController.insertionSort();
   delay(1000);
+  stripSortController.runningDot();
   stripSortController.intialize();
   stripSortController.mergeSortControl();
   delay(1000);
+  stripSortController.runningDot();
   stripSortController.intialize();
   stripSortController.selectionSort();
   delay(1000);
+  stripSortController.runningDot();
   stripSortController.intialize();
   stripSortController.quickSortControl();
   delay(1000);
