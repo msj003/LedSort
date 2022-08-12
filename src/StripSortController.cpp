@@ -172,3 +172,58 @@ void StripSortController::mergeSortControl()
      Serial.println("Merge Sort End");
      stripAccess->printHueArray();
 }
+
+// ------------
+// Quick Sort 
+// ------------
+
+void swap(int i, int j){
+    // Swap
+        int temp = stripAccess->getHue(i);
+        stripAccess->setHue(i,stripAccess->getHue(j));
+        stripAccess->setHue(j,temp);
+}
+
+int partition (int low, int high) 
+{ 
+    int pivot = stripAccess->getHue(high); // pivot 
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+  
+    for (int j = low; j <= high - 1; j++) 
+    { 
+        // If current element is smaller than the pivot 
+        if (stripAccess->getHue(j) < pivot) 
+        { 
+            i++; // increment index of smaller element 
+            swap(i, j); 
+        } 
+    } 
+    swap(i + 1, high); 
+    return (i + 1); 
+} 
+  
+/* The main function that implements QuickSort 
+arr[] --> Array to be sorted, 
+low --> Starting index, 
+high --> Ending index */
+void quickSort(int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        /* pi is partitioning index, arr[p] is now 
+        at right place */
+        int pi = partition(low, high); 
+  
+        // Separately sort elements before 
+        // partition and after partition 
+        quickSort(low, pi - 1); 
+        quickSort(pi + 1, high); 
+    } 
+} 
+
+void StripSortController::quickSortControl() 
+{ 
+    Serial.println("Quick Sort Begin");
+     quickSort(0, NUM_LEDS - 1);
+     Serial.println("Quick  Sort End");
+}

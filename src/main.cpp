@@ -25,4 +25,7 @@ void loop()
   stripSortController.intialize();
   stripSortController.selectionSort();
   delay(1000);
+  stripSortController.intialize();
+  stripSortController.quickSortControl();
+  delay(1000);
 }
