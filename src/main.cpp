@@ -17,6 +17,10 @@ void loop()
 {
   stripSortController.runningDot();
   stripSortController.intialize();
+  stripSortController.heapSortControl();
+  delay(1000);
+  stripSortController.runningDot();
+  stripSortController.intialize();
   stripSortController.insertionSort();
   delay(1000);
   stripSortController.runningDot();

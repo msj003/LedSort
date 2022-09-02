@@ -12,4 +12,5 @@ class StripSortController
         static void selectionSort();
         static void mergeSortControl();
         static void quickSortControl();
+        static void heapSortControl();
 };

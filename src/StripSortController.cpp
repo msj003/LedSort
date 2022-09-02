@@ -227,3 +227,59 @@ void StripSortController::quickSortControl()
      quickSort(0, NUM_LEDS - 1);
      Serial.println("Quick  Sort End");
 }
+
+
+//-------------------------------------------------
+//-------------------------------------------------
+//-------------- HEAP SORT  -----------------------
+//-------------------------------------------------
+//-------------------------------------------------
+
+
+void maxHeapify(int i, int heapsize)
+{
+    int largest = i;
+    int l = 2*i + 1;
+    int r = 2*i + 2;
+    if(l < heapsize && stripAccess->getHue(l) > stripAccess->getHue(largest)){
+        largest = l;
+    }        
+    if(r < heapsize && stripAccess->getHue(r) > stripAccess->getHue(largest))
+    {
+        largest = r;
+    }
+    if(largest != i)
+    {
+        swap(i,largest);
+        maxHeapify(largest,heapsize);
+    }
+    
+}
+
+
+void buildMaxHeap(){
+    int heapsize = NUM_LEDS - 1;
+    for(int i = NUM_LEDS/2 - 1 ; i >= 0; i--)
+    {
+        maxHeapify(i, heapsize);
+    }
+}
+
+void heapSort(){
+    buildMaxHeap();
+    int heapsize = NUM_LEDS-1;
+    for(int i = NUM_LEDS-1; i>0; i--){
+        swap(0,i);
+        heapsize = heapsize-1;
+        maxHeapify(0,heapsize); 
+    }
+}
+
+void StripSortController::heapSortControl() 
+{ 
+
+    Serial.println("Heap Sort Begin");
+     heapSort();
+    Serial.println("Heap  Sort End");
+    
+}
